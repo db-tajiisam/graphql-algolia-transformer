@@ -142,7 +142,7 @@ def handle_db_event(event):
         # Ensure stream has required info
         is_ddb_insert_or_update = (event_name == 'INSERT') or (event_name == 'MODIFY')
         is_ddb_delete = event_name == 'REMOVE'
-        image_name = 'NewImage' if is_ddb_insert_or_update else 'Keys'
+        image_name = 'NewImage' if is_ddb_insert_or_update else 'OldImage'
 
         if image_name not in ddb:
             logger.warning(
